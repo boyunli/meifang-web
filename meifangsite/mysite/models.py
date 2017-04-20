@@ -25,7 +25,7 @@ class BaseModel(models.Model):
 
 
 class InputContent(BaseModel):
-    author = models.CharField(max_length=200, verbose_name='作者')
+    author = models.CharField(max_length=200, verbose_name='作者', null =True, blank=True)
     network_platform = models.CharField(max_length=100, verbose_name='网络平台')
     url = models.CharField(max_length=200, verbose_name='文章链接')
 
