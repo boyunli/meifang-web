@@ -92,3 +92,4 @@ meifangsite/mysite/*.py~
 *.sw[op]
 migrations/
 log/
+settings.py

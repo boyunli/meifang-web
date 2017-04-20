@@ -25,5 +25,5 @@ xversion.register_models()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^xadmin/', include(xadmin.site.urls),name='xadmin'),
-    url(r'^$', RedirectView.as_view(url='http://pydream.top:8080/xadmin')),
+    url(r'^$', RedirectView.as_view(url='http://qing-bj.hauzerlee.cn:30010/xadmin')),
 ]
