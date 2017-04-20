@@ -33,6 +33,12 @@ class InputContent(BaseModel):
         return u'author={author}, network_platform={network_platform},'\
                 .format(author=self.author, network_platform=self.network_platform)
 
+    def save(self, *args, **kwargs):
+        if not self.author:
+            self.author = self.network_platform
+            super(InputContent, self).save(*args, **kwargs)
+
+
     class Meta:
         db_table = 'input_content'
         verbose_name = verbose_name_plural = '内容详情'

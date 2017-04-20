@@ -93,3 +93,4 @@ meifangsite/mysite/*.py~
 migrations/
 log/
 settings.py
+meifang.data
