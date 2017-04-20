@@ -36,7 +36,7 @@ class InputContent(BaseModel):
     def save(self, *args, **kwargs):
         if not self.author:
             self.author = self.network_platform
-            super(InputContent, self).save(*args, **kwargs)
+        super(InputContent, self).save(*args, **kwargs)
 
 
     class Meta:
