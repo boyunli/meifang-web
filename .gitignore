@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+meifangsite/mysite/*.py~
+*.py~
+*.sw[op]
+migrations/
