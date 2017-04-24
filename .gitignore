@@ -91,3 +91,5 @@ meifangsite/mysite/*.py~
 *.py~
 *.sw[op]
 migrations/
+log/
+meifangsite/meifangsite/urls.py
