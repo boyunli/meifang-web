@@ -19,8 +19,8 @@ xadmin.sites.site.register(views.website.IndexView, MainDashboard)
 
 
 class GlobalSetting(object):
-    site_title = u'美房网内容管理系统'
-    site_footer = u'美房网内容管理系统'
+    site_title = u'美房网舆情监控系统'
+    site_footer = u'美房网舆情监控系统'
     menu_style = 'default'
     global_search_models = [ InputContent,]
 
@@ -38,6 +38,7 @@ class InputContentAdmin(object):
     list_display = ('id', 'author', 'network_platform', 'url')
     list_display_links = ('url',)
     search_fields = ['author', 'network_platform']
+    list_export = ()
 
 xadmin.sites.site.register(InputContent, InputContentAdmin)
 
