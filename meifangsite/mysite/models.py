@@ -28,6 +28,7 @@ class InputContent(BaseModel):
     author = models.CharField(max_length=200, verbose_name='作者', null=True, blank=True)
     network_platform = models.CharField(max_length=100, verbose_name='网络平台')
     url = models.CharField(max_length=200, verbose_name='文章链接')
+    has_crawl = models.BooleanField(default=False, verbose_name='是否抓取')
 
     def __unicode__(self):
         return u'author={author}, network_platform={network_platform},'\

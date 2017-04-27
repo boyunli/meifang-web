@@ -35,8 +35,9 @@ xadmin.sites.site.register(views.CommAdminView, GlobalSetting)
 
 
 class InputContentAdmin(object):
-    list_display = ('id', 'author', 'network_platform', 'url')
+    list_display = ('id', 'author', 'network_platform', 'url', 'has_crawl')
     list_display_links = ('url',)
+    list_editable = ('has_crawl',)
     search_fields = ['author', 'network_platform']
     list_export = ()
 
