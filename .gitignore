@@ -93,3 +93,5 @@ meifangsite/mysite/*.py~
 migrations/
 log/
 meifangsite/meifangsite/urls.py
+*.json 
+*.sql 
