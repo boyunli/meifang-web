@@ -39,37 +39,37 @@ xadmin.sites.site.register(views.CommAdminView, GlobalSetting)
 
 
 class GovWebAdmin(object):
-    list_display = ('id', 'network_platform', 'url')
-    list_display_links = ('network_platform', )
+    list_display = ('id', 'web', 'web_url')
+    list_display_links = ('web', )
     #list_editable = ('has_crawl',)
-    search_fields = ['network_platform']
+    search_fields = ['web']
     list_export = ()
 
 xadmin.sites.site.register(GovWeb, GovWebAdmin)
 
 class EstateWebAdmin(object):
-    list_display = ('id', 'network_platform', 'url')
-    list_display_links = ('network_platform', )
+    list_display = ('id', 'web', 'web_url')
+    list_display_links = ('web', )
     #list_editable = ('has_crawl',)
-    search_fields = ['network_platform']
+    search_fields = ['web']
     list_export = ()
 
 xadmin.sites.site.register(EstateWeb, EstateWebAdmin)
 
 class SNSWebAdmin(object):
-    list_display = ('id', 'network_platform', 'url')
-    list_display_links = ('network_platform', )
+    list_display = ('id', 'web', 'article_url')
+    list_display_links = ('web', )
     #list_editable = ('has_crawl',)
-    search_fields = ['network_platform']
+    search_fields = ['web']
     list_export = ()
 
 xadmin.sites.site.register(SNSWeb, SNSWebAdmin)
 
 class WeiXinAdmin(object):
-    list_display = ('id', 'network_platform', 'url')
-    list_display_links = ('network_platform', )
+    list_display = ('id', 'account', 'article_url')
+    list_display_links = ('account', )
     #list_editable = ('has_crawl',)
-    search_fields = ['network_platform']
+    search_fields = ['account']
     list_export = ()
 
 xadmin.sites.site.register(WeiXin, WeiXinAdmin)

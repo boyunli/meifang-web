@@ -25,18 +25,14 @@ class BaseModel(models.Model):
 
 
 class GovWeb(BaseModel):
-    LEVEL_DEFAULT = 999
 
     title = models.CharField(max_length=200, verbose_name='网页标题', null=True, blank=True)
-    network_platform = models.CharField(max_length=100, verbose_name='网络平台')
-    url = models.CharField(max_length=200, verbose_name='文章链接')
-    has_crawl = models.BooleanField(default=False, verbose_name='是否抓取')
+    web = models.CharField(max_length=100, verbose_name='网站', unique=True)
+    web_url = models.CharField(max_length=200, verbose_name='网站链接')
     has_parser = models.BooleanField(default=False, verbose_name='是否解析')
-    level = models.IntegerField(default=LEVEL_DEFAULT)
 
     def __unicode__(self):
-        return u'network_platform={network_platform},'\
-                .format(network_platform=self.network_platform)
+        return u'web={web},'.format(web=self.web)
 
     #def save(self, *args, **kwargs):
     #    if not self.author:
@@ -49,12 +45,11 @@ class GovWeb(BaseModel):
 
 class EstateWeb(BaseModel):
 
-    network_platform = models.CharField(max_length=100, verbose_name='网络平台')
-    url = models.CharField(max_length=200, verbose_name='文章链接')
+    web = models.CharField(max_length=100, verbose_name='网站', unique=True)
+    web_url = models.CharField(max_length=200, verbose_name='网站链接')
 
     def __unicode__(self):
-        return u'network_platform={network_platform},'\
-                .format(network_platform=self.network_platform)
+        return u'web={web},'.format(web=self.web)
 
     class Meta:
         db_table = 'estate_web'
@@ -63,16 +58,15 @@ class EstateWeb(BaseModel):
 class SNSWeb(BaseModel):
 
     author = models.CharField(max_length=200, verbose_name='作者', null=True, blank=True)
-    network_platform = models.CharField(max_length=100, verbose_name='网络平台')
-    url = models.CharField(max_length=200, verbose_name='文章链接')
+    web = models.CharField(max_length=100, verbose_name='网站', unique=True)
+    article_url = models.CharField(max_length=200, verbose_name='文章链接')
 
     def __unicode__(self):
-        return u'author={author}, network_platform={network_platform},'\
-                .format(author=self.author, network_platform=self.network_platform)
+        return u'web={web},'.format(web=self.web)
 
     def save(self, *args, **kwargs):
         if not self.author:
-            self.author = self.network_platform
+            self.author = self.web
         super(SNSWeb, self).save(*args, **kwargs)
 
     class Meta:
@@ -82,16 +76,15 @@ class SNSWeb(BaseModel):
 class WeiXin(BaseModel):
 
     author = models.CharField(max_length=200, verbose_name='作者', null=True, blank=True)
-    network_platform = models.CharField(max_length=100, verbose_name='网络平台')
-    url = models.CharField(max_length=200, verbose_name='文章链接')
+    account = models.CharField(max_length=100, verbose_name='公众号', unique=True)
+    article_url = models.CharField(max_length=200, verbose_name='文章链接')
 
     def __unicode__(self):
-        return u'author={author}, network_platform={network_platform},'\
-                .format(author=self.author, network_platform=self.network_platform)
+        return u'account={account},'.format(account=self.account)
 
     def save(self, *args, **kwargs):
         if not self.author:
-            self.author = self.network_platform
+            self.author = self.account
         super(WeiXin, self).save(*args, **kwargs)
 
     class Meta:
