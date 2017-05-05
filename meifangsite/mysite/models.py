@@ -26,10 +26,10 @@ class BaseModel(models.Model):
 
 class GovWeb(BaseModel):
 
-    title = models.CharField(max_length=200, verbose_name='网页标题', null=True, blank=True)
+    title = models.CharField(max_length=200, verbose_name='网页标题', default='<自动>')
     web = models.CharField(max_length=100, verbose_name='网站', unique=True)
     web_url = models.CharField(max_length=200, verbose_name='网站链接')
-    has_parser = models.BooleanField(default=False, verbose_name='是否解析')
+    has_parsed = models.BooleanField(default=False, verbose_name='是否解析')
 
     def __unicode__(self):
         return u'web={web},'.format(web=self.web)
