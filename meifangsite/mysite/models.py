@@ -25,11 +25,18 @@ class BaseModel(models.Model):
 
 
 class GovWeb(BaseModel):
+    NOT_PARSE = 0
+    HAS_PARSE = 1
+    PARSE_CHOICES = (
+            (NOT_PARSE, '待解析'),
+            (HAS_PARSE, '已解析'),
+            )
 
     title = models.CharField(max_length=200, verbose_name='网页标题', default='<自动>')
     web = models.CharField(max_length=100, verbose_name='网站', unique=True)
     web_url = models.CharField(max_length=200, verbose_name='网站链接')
-    has_parsed = models.BooleanField(default=False, verbose_name='是否解析')
+    has_parsed = models.IntegerField(default=NOT_PARSE,
+            choices=PARSE_CHOICES, verbose_name='是否解析')
 
     def __unicode__(self):
         return u'web={web},'.format(web=self.web)
